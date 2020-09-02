@@ -1,0 +1,47 @@
+/* 
+    Document   : controlStyle
+*/
+
+.root
+{
+    -fx-font-size: 12pt;
+    -fx-font-family: "Times New Roman";
+    -fx-base: #0079d3;
+    -fx-background: #ffffff;
+}
+
+.button
+{
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #262632;
+    -fx-border-radius: 5;
+    -fx-padding: 3 6 6 6;
+}
+
+.borders
+{
+    -fx-border-color: rgb(103, 100, 78);
+    -fx-border-style: dotted;
+    -fx-border-width: 1.5;
+    -fx-border-insets: -5;
+}
+
+#btLobbyEndSession
+{
+    -fx-base: #ff4500;   
+}
+
+#custom-label
+{
+    -fx-text-fill: #ffffff;
+}
+
+.hbox
+{
+    -fx-background-color: #172a56;
+}
+
+#hbox-custom
+{
+    -fx-base: #ff4500;   
+}

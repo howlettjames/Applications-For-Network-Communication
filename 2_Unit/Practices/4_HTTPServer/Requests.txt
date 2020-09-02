@@ -1,0 +1,70 @@
+POST
+Tue Apr 09 21:25:48 CDT 2019
+----------------------------927642126817342919637626
+Content-Disposition: form-data; name="File.txt"; filename="Practice4.txt"
+Content-Type: text/plain
+
+Implementar un servidor HTTP que resuelva peticiones
+GET, POST, HEAD y DELETE de acuerdo con RFC2616 para
+distintos tipos de contenido (tipo MIME) y que permita
+atender múltiples clientes a la vez (hilos), sin poner en
+riesgo el desempeño de la máquina (implementar un pool de hilos).
+
+Example: sockets/java/Server2.zip
+
+Si nos piden: http://127.0.0.1:8000 Enter. Entonces devolvemos index.html o index.htm
+
+->GET_/_HTTP/1.0
+Si, sí existe el recurso que nos están pidiendo y si tienen permiso de lectura se lo devolvemos
+Encabezado:
+- Code_control
+- Connection
+- Date
+- Accept_Charset
+- Host
+- Refer
+- Accept-Language
+- \n\r
+
+Lo que vamos a responder es:
+HTTP/1.0 200 OK (el código 200 es de que esta todo bien)
+Encabezado:
+- Server
+- Content-Encoding
+- Content-Type (obligatorio)
+- Content-Length (obligatorio)
+- Expires (para el caché del navegador o cookies es el tiempo de expiración)
+- Last-Modified
+- \n\r
+- Archivo <-
+----------------------------927642126817342919637626
+Content-Disposition: form-data; name="Name"
+
+James
+----------------------------927642126817342919637626--
+
+
+GET
+Wed Apr 17 09:22:09 CDT 2019
+Apellido=Jaime&Direccion=Maravillas&Telefono=5512122326&comentario=Holaaa
+
+POST
+Wed Apr 17 09:26:18 CDT 2019
+Apellido=Jaime&Direccion=Maravillas&Telefono=5512122326&comentario=Holaaa
+
+GET
+Wed Apr 17 09:27:24 CDT 2019
+Apellido=Jaime&Direccion=Maravillas&Telefono=5512122326&comentario=Holaaa
+
+POST
+Wed Apr 17 09:28:17 CDT 2019
+Apellido=Jaime&Direccion=Maravillas&Telefono=5512122326&comentario=Holaaa
+
+POST
+Wed Apr 17 09:33:11 CDT 2019
+Apellido=Jaime&Direccion=Maravillas&Telefono=5512122326&comentario=Holaaa
+
+POST
+Wed Apr 17 09:38:22 CDT 2019
+Apellido=Jaime&Direccion=Maravillas&Telefono=5512122326&comentario=Holaaa
+

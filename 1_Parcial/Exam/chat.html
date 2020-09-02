@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+
+	<script language='javascript'>	
+		let rows = 0;
+		let table;
+
+		function createTable()
+		{
+			table = document.createElement("TABLE");
+			table.setAttribute("id", "myTable");
+			document.body.appendChild(table);
+		}
+
+		function putText(text)
+		{
+			let row = table.insertRow(rows++);
+			let cell = row.insertCell(0);
+			cell.innerHTML = text;
+		}
+
+		function putImage(path)
+		{
+			let row = table.insertRow(rows++);
+			let cell = row.insertCell(0);
+			cell.innerHTML = '<img src=' + "bassfender1.jpg" + '/>';
+		}
+
+		function deleteTable()
+		{
+			table.parentNode.removeChild(table);
+			rows = 0;
+		}
+	</script>
+</body>
+
+</html>
+​

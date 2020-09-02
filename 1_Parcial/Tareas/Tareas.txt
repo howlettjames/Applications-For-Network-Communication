@@ -1,0 +1,6 @@
+Tareas Axel:
+1 Backlog
+2 Echo socket flujo
+3 eco datagrama
+4 envio archivos datagrama
+5 juego ahorcado usando 2 lenguajes diferentes

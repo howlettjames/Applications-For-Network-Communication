@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<div>
+		<textarea id="textArea" cols="85" rows="20"></textarea>
+	</div>
+	<div>
+		<input type="text" id="inputText" value="Message">
+		<button onclick="addEmoji()">Add Emoji</button>
+		<select id="emojiSelection">
+			<option value="0x1F605">&#x1F605</option>
+			<option value="0x1F603">&#x1F603</option>
+			<option value="0x1F606">&#x1F606</option>
+			<option value="0x1F60D">&#x1F60D</option>
+			<option value="0x1F618">&#x1F618</option>
+		</select>
+		<img id="imageGif" src="gifs/js.gif" alt="GIF" style="width:100px;height:100px;">
+	</div>
+	
+	<script language='javascript'>	
+		let emojisValues = [];
+		let indexEmojis = 0;
+
+		function addEmoji()
+		{
+			let index = document.getElementById("emojiSelection").selectedIndex;
+			let emojis = document.getElementById("emojiSelection").options;
+			emojisValues[indexEmojis++] = emojis[index].value;
+			document.getElementById("inputText").value += emojis[index].text;
+		}
+		
+		function sendMessage()
+		{
+			let msg = document.getElementById("inputText").value;
+			document.getElementById("textArea").value += '\n' + msg + ' -Me';
+			emojisLength = indexEmojis;
+			indexEmojis = 0;
+		}
+
+		function putText(msg)
+		{
+			//let msg = document.getElementById("textArea").value;
+			let msgs = msg.split("0x");
+			document.getElementById("textArea").value += '\n';
+			for(let i = 0; i < msgs.length; i++)
+			{
+				if(msgs[i].charAt(0) == '1' && msgs[i].charAt(1) == 'F')
+				{
+					msgs[i] = msgs[i].trim();
+					//If it is only and emoji e.g. '1F605'
+					if(msgs[i].length < 6)
+					{
+						msgs[i] = String.fromCodePoint('0x' + msgs[i]);
+						document.getElementById("textArea").value += msgs[i];	
+					}
+					//If it is an emoji with a message e.g. '1F605 -James'
+					else
+					{
+						let emoji = msgs[i].substring(0, 6);
+						msgs[i] = msgs[i].substring(6);
+						emoji = String.fromCodePoint('0x' + emoji);
+						document.getElementById("textArea").value += emoji;	
+						document.getElementById("textArea").value += msgs[i];	
+					}					
+				}
+				else
+					document.getElementById("textArea").value += msgs[i];	
+			}	
+		}
+
+		function putGif(gifName)
+		{
+			let imageGif = document.getElementById("imageGif");
+			imageGif.src = "file:///C:/Users/James/Documents/ESCOM_SEMESTRE_7/3CM7_REDESII/1_Parcial/Programs/Practices/3_Chat/gifs/" + gifName;
+		}
+	</script>
+</body>
+
+</html>
+​
